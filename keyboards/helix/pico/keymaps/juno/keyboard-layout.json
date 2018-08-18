@@ -97,11 +97,13 @@
     "Opt",
     "⌘",
     {
-      "c": "#86d2e3"
+      "c": "#86d2e3",
+      "a": 5
     },
-    "Lower",
+    "\n英数\n\n\n\n\nLower",
     {
-      "c": "#cccccc"
+      "c": "#cccccc",
+      "a": 7
     },
     "Space",
     {
@@ -109,11 +111,13 @@
     },
     "Enter",
     {
-      "c": "#e6b5da"
+      "c": "#e6b5da",
+      "a": 5
     },
-    "Raise",
+    "\nかな\n\n\n\n\nRaise",
     {
-      "c": "#cccccc"
+      "c": "#cccccc",
+      "a": 7
     },
     "⌘",
     "&larr;",
