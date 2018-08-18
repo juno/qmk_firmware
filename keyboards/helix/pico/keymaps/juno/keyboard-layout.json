@@ -103,11 +103,12 @@
     "\n英数\n\n\n\n\nLower",
     {
       "c": "#cccccc",
-      "a": 7
+      "a": 3
     },
-    "Space",
+    "Space\n\n\n\n\nBS",
     {
-      "x": 1
+      "x": 1,
+      "a": 7
     },
     "Enter",
     {
