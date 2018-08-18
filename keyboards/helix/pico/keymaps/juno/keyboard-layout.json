@@ -1,0 +1,124 @@
+[
+  {
+    "name": "Helix Pico Dvorak Custom",
+    "author": "junya"
+  },
+  [
+    {
+      "a": 3
+    },
+    "Tab\n\n\n\n~\n`",
+    {
+      "a": 1
+    },
+    "\"\n\n\n\n!\n1\n'",
+    "<\n\n\n\n@\n2\n,",
+    ">\n\n\n\n#\n3\n.",
+    {
+      "a": 3
+    },
+    "P\n\n\n\n$\n4",
+    "Y\n\n\n\n%\n5",
+    {
+      "x": 3
+    },
+    "F\n\n\n\n^\n6",
+    "G\n\n\n\n&\n7",
+    "C\n\n\n\n*\n8",
+    "R\n\n\n\n(\n9",
+    "L\n\n\n\n)\n0",
+    "BS\n\n\n\nDel\nDel"
+  ],
+  [
+    {
+      "a": 7
+    },
+    "Ctrl",
+    {
+      "a": 3
+    },
+    "A\n\n\n\nF1\nF1",
+    "O\n\n\n\nF2\nF2",
+    "E\n\n\n\nF3\nF3",
+    "U\n\n\n\nF4\nF4",
+    "I\n\n\n\nF5\nF5",
+    {
+      "x": 3
+    },
+    "D\n\n\n\nF6\nF6",
+    "H\n\n\n\n{\n[",
+    "T\n\n\n\n}\n]",
+    "N\n\n\n\n?\n/",
+    "S\n\n\n\n+\n=",
+    {
+      "a": 1
+    },
+    "_\n\n\n\n|\n\\\n-"
+  ],
+  [
+    {
+      "a": 7
+    },
+    "Shift",
+    {
+      "a": 1
+    },
+    ":\n\n\n\nF7\nF7\n;",
+    {
+      "a": 3
+    },
+    "Q\n\n\n\nF8\nF8",
+    "J\n\n\n\nF9\nF9",
+    "K\n\n\n\nF10\nF10",
+    "X\n\n\n\nF11\nF11",
+    {
+      "x": 3
+    },
+    "B\n\n\n\nF12\nF12",
+    {
+      "a": 7
+    },
+    "M",
+    {
+      "a": 3
+    },
+    "W\n\n\n\nPrScr",
+    "V\n\n\n\nHm\nPD",
+    "Z\n\n\n\nEd\nPU",
+    {
+      "a": 7
+    },
+    "Enter\n\n\n\nShift"
+  ],
+  [
+    "ESC",
+    "Adjust",
+    "",
+    "Opt",
+    "⌘",
+    {
+      "c": "#86d2e3"
+    },
+    "Lower",
+    {
+      "c": "#cccccc"
+    },
+    "Space",
+    {
+      "x": 1
+    },
+    "Space",
+    {
+      "c": "#e6b5da"
+    },
+    "Raise",
+    {
+      "c": "#cccccc"
+    },
+    "⌘",
+    "&larr;",
+    "&darr;",
+    "&uarr;",
+    "&rarr;"
+  ]
+]
