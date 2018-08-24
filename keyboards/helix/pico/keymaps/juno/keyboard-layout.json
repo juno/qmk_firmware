@@ -94,13 +94,16 @@
     "ESC",
     "Adjust",
     "",
-    "Opt",
-    "⌘",
+    "",
     {
-      "c": "#86d2e3",
       "a": 5
     },
-    "\n英数\n\n\n\n\nLower",
+    "\n英数\n\n\n\n\n⌘",
+    {
+      "c": "#86d2e3",
+      "a": 7
+    },
+    "Lower",
     {
       "c": "#cccccc",
       "a": 3
@@ -112,15 +115,17 @@
     },
     "Enter",
     {
-      "c": "#e6b5da",
-      "a": 5
+      "c": "#e6b5da"
     },
-    "\nかな\n\n\n\n\nRaise",
+    "Raise",
     {
       "c": "#cccccc",
+      "a": 5
+    },
+    "\nかな\n\n\n\n\nOpt",
+    {
       "a": 7
     },
-    "⌘",
     "&larr;",
     "&darr;",
     "&uarr;",
