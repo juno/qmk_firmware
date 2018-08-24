@@ -1,6 +1,4 @@
 /*
-This is the c configuration file for the keymap
-
 Copyright 2012 Jun Wako <wakojun@gmail.com>
 Copyright 2015 Jack Humbert
 
@@ -20,30 +18,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-/* Use I2C or Serial */
+#include "config_common.h"
 
-#define USE_I2C
-#define USE_SERIAL
-//#define USE_MATRIX_I2C
 
-/* Select hand configuration */
+#define PRODUCT         Dactyl-Manuform (Ergodox)
 
-#define MASTER_LEFT
-// #define MASTER_RIGHT
-// #define EE_HANDS
+/* key matrix size */
+// Rows are doubled-up
+#define MATRIX_ROWS 12
+#define MATRIX_COLS 7
 
-#define SSD1306OLED
-
-#define USE_SERIAL_PD2
-
-#define PREVENT_STUCK_MODIFIERS
-#define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 100
-
-#undef RGBLED_NUM
-#define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 27
-#define RGBLIGHT_LIMIT_VAL 120
-#define RGBLIGHT_HUE_STEP 10
-#define RGBLIGHT_SAT_STEP 17
-#define RGBLIGHT_VAL_STEP 17
+// wiring of each half
+#define MATRIX_ROW_PINS { D4, C6, D7, E6, B4, B5 }
+#define MATRIX_COL_PINS { F5, F6, F7, B1, B3, B2, B6 }
