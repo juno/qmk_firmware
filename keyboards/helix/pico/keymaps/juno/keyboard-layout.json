@@ -7,7 +7,7 @@
     {
       "a": 3
     },
-    "Tab\n\n\n\n~\n`",
+    "ESC\n\n\n\n~\n`",
     {
       "a": 1
     },
@@ -31,9 +31,9 @@
   ],
   [
     {
-      "a": 7
+      "a": 5
     },
-    "Ctrl",
+    "\nTab\n\n\n\n\nCtrl",
     {
       "a": 3
     },
@@ -75,24 +75,18 @@
       "x": 3
     },
     "B\n\n\n\nF12\nF12",
-    {
-      "a": 7
-    },
-    "M",
-    "W",
-    {
-      "a": 3
-    },
-    "V\n\n\n\nHm\nPD",
-    "Z\n\n\n\nEd\nPU",
+    "M\n\n\n\nPD\n&larr;",
+    "W\n\n\n\nPU\n&darr;",
+    "V\n\n\n\nHm\n&uarr;",
+    "Z\n\n\n\nEd\n&rarr;",
     {
       "a": 7
     },
     "Shift"
   ],
   [
-    "ESC",
-    "Adjust",
+    "",
+    "",
     "",
     "",
     {
@@ -126,9 +120,9 @@
     {
       "a": 7
     },
-    "&larr;",
-    "&darr;",
-    "&uarr;",
-    "&rarr;"
+    "",
+    "",
+    "",
+    ""
   ]
 ]
