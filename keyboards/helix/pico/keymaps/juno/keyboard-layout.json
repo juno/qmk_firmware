@@ -7,7 +7,7 @@
     {
       "a": 3
     },
-    "TAB\n\n\n\n~\n`",
+    "Tab\n\n\n\n~\n`",
     {
       "a": 1
     },
@@ -33,7 +33,7 @@
     {
       "a": 7
     },
-    "CTRL",
+    "Ctrl",
     {
       "a": 3
     },
@@ -46,20 +46,20 @@
       "x": 3
     },
     "D\n\n\n\nF6\nF6",
-    "H\n\n\n\n{\n[",
-    "T\n\n\n\n}\n]",
-    "N\n\n\n\n?\n/",
-    "S\n\n\n\n+\n=",
+    "H\n\n\n\n_\n-",
+    "T\n\n\n\n+\n=",
+    "N\n\n\n\n{\n[",
+    "S\n\n\n\n}\n]",
     {
       "a": 1
     },
-    "_\n\n\n\n|\n\\\n-"
+    "?\n\n\n\n|\n\\\n/"
   ],
   [
     {
-      "a": 5
+      "a": 7
     },
-    "\nESC\n\n\n\n\nShift",
+    "Shift",
     {
       "a": 1
     },
@@ -85,19 +85,18 @@
     "Shift"
   ],
   [
-    "",
+    "Adjust",
     "",
     "",
     "",
     {
       "a": 5
     },
-    "\n英数\n\n\n\n\n⌘",
+    "\nESC\n\n\n\n\n⌘",
     {
-      "c": "#86d2e3",
-      "a": 7
+      "c": "#86d2e3"
     },
-    "Lower",
+    "\n英数\n\n\n\n\nLower",
     {
       "c": "#cccccc",
       "a": 3
@@ -109,14 +108,14 @@
     },
     "Enter",
     {
-      "c": "#e6b5da"
-    },
-    "Raise",
-    {
-      "c": "#cccccc",
+      "c": "#e6b5da",
       "a": 5
     },
-    "\nかな\n\n\n\n\nOpt",
+    "\nかな\n\n\n\n\nRaise",
+    {
+      "c": "#cccccc"
+    },
+    "\nTab\n\n\n\n\nOpt",
     {
       "a": 7
     },
