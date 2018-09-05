@@ -101,7 +101,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
    * |      |  F1  |  F2  |  F3  |  F4  |  F5  |             |  F6  |   _  |   +  |   {  |   }  |  |   |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * |      |  F7  |  F8  |  F9  |  F10 |  F11 |             |  F12 |PageDn|PgaeUp| Home | End  |      |
+   * |      |  F7  |  F8  |  F9  |  F10 |  F11 |             |  F12 | Left | Down |  Up  |Right |      |
    * |------+------+------+------+------+------+-------------+------+------+------+------+------+------|
    * |      |      |      |      |      |      |      |      |      |      |      | Vol- | Vol+ |      |
    * `-------------------------------------------------------------------------------------------------'
@@ -109,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_LOWER] = LAYOUT( \
       KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,             KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL, \
       _____,   KC_F1,   KC_F2, KC_F3,   KC_F4,  KC_F5,               KC_F6,   KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, \
-      _____,   KC_F7,   KC_F8, KC_F9,   KC_F10, KC_F11,              KC_F12,  KC_PGDN, KC_PGUP, KC_HOME, KC_END,  _____, \
+      _____,   KC_F7,   KC_F8, KC_F9,   KC_F10, KC_F11,              KC_F12,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _____, \
       _____,   _____,   _____, _____,   _____,  _____, _____, _____, _____,   _____,   _____,   KC_VOLD, KC_VOLU, _____ \
       ),
 
@@ -119,16 +119,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
    * |      |  F1  |  F2  |  F3  |  F4  |  F5  |             |  F6  |   -  |   =  |   [  |   ]  |  \   |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * |      |  F7  |  F8  |  F9  |  F10 |  F11 |             |  F12 | Left | Down |  Up  |Right |      |
+   * |      |  F7  |  F8  |  F9  |  F10 |  F11 |             |  F12 |PageDn|PgaeUp| Home | End  |      |
    * |------+------+------+------+------+------+-------------+------+------+------+------+------+------|
-   * |      |      |      |      |      |      | Bksp |      |      |      |      | Vol- | Vol+ |      |
+   * |      |      |      |      |      |      | Bspc |      |      |      |      |      |      |      |
    * `-------------------------------------------------------------------------------------------------'
    */
   [_RAISE] = LAYOUT( \
       KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                   KC_6,   KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
       _____,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                  KC_F6,  KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS, \
-      _____,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,                 KC_F12, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _____, \
-      KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_BTN1, _____,  KC_BSPC, _____, _____,  _____,   _____,   KC_VOLD, KC_VOLU, _____ \
+      _____,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,                 KC_F12, KC_PGDN, KC_PGUP, KC_HOME, KC_END,  _____, \
+      KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_BTN1, _____,  KC_BSPC, _____, _____,  _____,   _____,   _____,   _____,   _____ \
       ),
 
   /* Adjust (Lower + Raise)

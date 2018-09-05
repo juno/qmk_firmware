@@ -1,8 +1,4 @@
 [
-  {
-    "name": "Helix Pico Dvorak Custom",
-    "author": "junya"
-  },
   [
     {
       "a": 3
@@ -75,10 +71,10 @@
       "x": 3
     },
     "B\n\n\n\nF12\nF12",
-    "M\n\n\n\nPD\n&larr;",
-    "W\n\n\n\nPU\n&darr;",
-    "V\n\n\n\nHm\n&uarr;",
-    "Z\n\n\n\nEd\n&rarr;",
+    "M\n\n\n\n&larr;\nPD",
+    "W\n\n\n\n&darr;\nPU",
+    "V\n\n\n\n&uarr;\nHome",
+    "Z\n\n\n\n&rarr;\nEnd",
     {
       "a": 7
     },
