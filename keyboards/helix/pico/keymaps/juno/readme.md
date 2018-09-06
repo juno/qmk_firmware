@@ -1,4 +1,15 @@
-# The Default HelixPico Layout
+# Customized HelixPico Layout
+
+## Layers
+
+|Priority|number|name|description|
+| ---- | ---- | --- | --- |
+|high|16|Adjust|Functions|
+||3|Raise|Numeric charactors|
+||2|Lower|Other charactors|
+||1|Dvorak|Dvorak leyout|
+|low|0|Qwerty|QWERTY leyout(base)|
+
 ## Layout
 
 ### Qwerty
@@ -26,16 +37,6 @@
  |      |      |      |      |GUI/Es|Low/Ei|Space |Enter |Rai/Kn|Alt/Tb|      |      |      |      |
  `-------------------------------------------------------------------------------------------------'
 ```
-
-## Layers
-
-|Priority|number|name|description|
-| ---- | ---- | --- | --- |
-|high|16|Adjust|Functions|
-||3|Raise|Numeric charactors|
-||2|Lower|Other charactors|
-||1|Dvorak|Dvorak leyout|
-|low|0|Qwerty|QWERTY leyout(base)|
 
 ### Lower
 ```
