@@ -26,17 +26,13 @@ extern uint8_t is_master;
 // entirely and just use numbers.
 enum layer_number {
     _QVORAK = 0,
-    _DVORAK,
     _LOWER,
-    _QLOWER,
     _RAISE,
-    _QRAISE,
     _ADJUST
 };
 
 enum custom_keycodes {
   QVORAK = SAFE_RANGE,
-  DVORAK,
   LOWER,
   RAISE,
   ADJUST,
@@ -90,42 +86,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      ADJUST,  XXXXX, XXXXX, XXXXX, GUI,   LOWER, KC_SPC, KC_ENT, RAISE, ALTAB, XXXXX,   XXXXX,  XXXXX,   XXXXX \
    ),
 
-  /* Dvorak
-   * ,-----------------------------------------.             ,-----------------------------------------.
-   * | TabAd|   '  |   ,  |   .  |   P  |   Y  |             |   F  |   G  |   C  |   R  |   L  | Bspc |
-   * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * | CTRL |   A  |   O  |   E  |   U  |   I  |             |   D  |   H  |   T  |   N  |   S  |  -   |
-   * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * | Shift|   ;  |   Q  |   J  |   K  |   X  |             |   B  |   M  |   W  |   V  |   Z  | Shift|
-   * |------+------+------+------+------+------+-------------+------+------+------+------+------+------|
-   * |Adjust|      |      |      |GUI/Es|Low/Ei| Space| Enter|Rai/Kn|Alt/Tb|      |      |      |      |
-   * `-------------------------------------------------------------------------------------------------'
-   */
-  [_DVORAK] = LAYOUT( \
-    TABADJ,  KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y,                  KC_F,  KC_G,  KC_C,  KC_R,  KC_L,  KC_BSPC, \
-    KC_LCTL, KC_A,    KC_O,    KC_E,   KC_U, KC_I,                  KC_D,  KC_H,  KC_T,  KC_N,  KC_S,  KC_MINS, \
-    KC_LSFT, KC_SCLN, KC_Q,    KC_J,   KC_K, KC_X,                  KC_B,  KC_M,  KC_W,  KC_V,  KC_Z,  KC_RSFT, \
-    ADJUST,  XXXXX,   XXXXX,   XXXXX,  GUI,  LOWER, KC_SPC, KC_ENT, RAISE, ALTAB, XXXXX, XXXXX, XXXXX, XXXXX \
-  ),
-
-  /* Lower
-   * ,-----------------------------------------.             ,-----------------------------------------.
-   * |   ~  |   !  |   @  |   #  |   $  |   %  |             |   ^  |   &  |   *  |   (  |   )  | Del  |
-   * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * |      |      |      |      |      |      |             |      |   {  |   }  |   ?  |   +  |  |   |
-   * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * |      |      |      |      |      |      |             |      | Home | PgDn | PgUp |  End |      |
-   * |------+------+------+------+------+------+-------------+------+------+------+------+------+------|
-   * |      |      |      |      |      |      |      |      |      |      |      | Vol- | Vol+ |      |
-   * `-------------------------------------------------------------------------------------------------'
-   */
-  [_LOWER] = LAYOUT( \
-    KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,             KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL, \
-    XXXXX,   XXXXX,   XXXXX, XXXXX,   XXXXX,  XXXXX,               XXXXX,   KC_LCBR, KC_RCBR, KC_QUES, KC_PLUS, KC_PIPE, \
-    XXXXX,   XXXXX,   XXXXX, XXXXX,   XXXXX,  XXXXX,               XXXXX,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXX, \
-    _____,   _____,   _____, _____,   _____,  _____, _____, _____, _____,   _____,   _____,   KC_VOLD, KC_VOLU, _____ \
-  ),
-
   /* Lower for Qvorak
    * Hardware:
    * ,-----------------------------------------.             ,-----------------------------------------.
@@ -148,29 +108,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |      |      |      |      |      |      |      |      |      |      |      | Vol- | Vol+ |      |
    * `-------------------------------------------------------------------------------------------------'
    */
-  [_QLOWER] = LAYOUT( \
+  [_LOWER] = LAYOUT( \
     KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,             KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL, \
     XXXXX,   XXXXX,   XXXXX, XXXXX,   XXXXX,  XXXXX,               XXXXX,   KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, \
     XXXXX,   XXXXX,   XXXXX, XXXXX,   XXXXX,  XXXXX,               XXXXX,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXX, \
     _____,   _____,   _____, _____,   _____,  _____, _____, _____, _____,   _____,   _____,   KC_VOLD, KC_VOLU, _____ \
-  ),
-
-  /* Raise
-   * ,-----------------------------------------.             ,-----------------------------------------.
-   * |   `  |   1  |   2  |   3  |   4  |   5  |             |   6  |   7  |   8  |   9  |   0  | Del  |
-   * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |             |      |   [  |   ]  |   /  |   =  |  \   |
-   * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |             |      | Left | Down |  Up  | Right|      |
-   * |------+------+------+------+------+------+-------------+------+------+------+------+------+------|
-   * |      |      |      |      |      |      | Bspc |      |      |      |      |      |      |      |
-   * `-------------------------------------------------------------------------------------------------'
-   */
-  [_RAISE] = LAYOUT( \
-    KC_GRV, KC_1,  KC_2,  KC_3,   KC_4,   KC_5,                   KC_6,  KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
-    KC_F1,  KC_F2, KC_F3, KC_F4,  KC_F5,  KC_F6,                  XXXXX, KC_LBRC, KC_RBRC, KC_SLSH, KC_EQL,  KC_BSLS, \
-    KC_F7,  KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,                 XXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _____, \
-    _____,  _____, _____, _____,  _____,  _____,  KC_BSPC, _____, _____, _____,   _____,   _____,   _____,   _____ \
   ),
 
   /* Raise for Qvorak
@@ -195,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |      |      |      |      |      |      | Bspc |      |      |      |      |      |      |      |
    * `-------------------------------------------------------------------------------------------------'
    */
-  [_QRAISE] = LAYOUT( \
+  [_RAISE] = LAYOUT( \
     KC_GRV, KC_1,  KC_2,  KC_3,   KC_4,   KC_5,                   KC_6,  KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
     KC_F1,  KC_F2, KC_F3, KC_F4,  KC_F5,  KC_F6,                  XXXXX, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS, \
     KC_F7,  KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,                 XXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _____, \
@@ -206,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,-----------------------------------------.             ,-----------------------------------------.
    * |      | Reset|      |      |      |      |             |      |      |      |      |      |      |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * |      |Aud on|Audoff|MU TOG|MU MOD|      |             |Qvorak|Dvorak|      |      |      |      |
+   * |      |Aud on|Audoff|MU TOG|MU MOD|      |             |      |      |      |      |      |      |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
    * |      |CK TOG|CK RST| CK UP|CK DWN|      |             |      |      |RGB ON| HUE+ | SAT+ | VAL+ |
    * |------+------+------+------+------+------+-------------+------+------+------+------+------+------|
@@ -214,10 +156,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_ADJUST] =  LAYOUT( \
-    _____, RESET,   _____,  _____,  _____,   _____,               _____,  _____,  _____,    _____,   _____,   _____, \
-    _____, AU_ON,   AU_OFF, MU_TOG, MU_MOD,  _____,               QVORAK, DVORAK, _____,    _____,   _____,   _____, \
-    _____, CK_TOGG, CK_RST, CK_UP,  CK_DOWN, _____,               _____,  _____,  RGB_TOG,  RGB_HUI, RGB_SAI, RGB_VAI, \
-    _____, _____,   _____,  _____,  _____,   _____, _____, _____, _____,  _____,  RGB_SMOD, RGB_HUD, RGB_SAD, RGB_VAD \
+    _____, RESET,   _____,  _____,  _____,   _____,               _____, _____, _____,    _____,   _____,   _____, \
+    _____, AU_ON,   AU_OFF, MU_TOG, MU_MOD,  _____,               _____, _____, _____,    _____,   _____,   _____, \
+    _____, CK_TOGG, CK_RST, CK_UP,  CK_DOWN, _____,               _____, _____, RGB_TOG,  RGB_HUI, RGB_SAI, RGB_VAI, \
+    _____, _____,   _____,  _____,  _____,   _____, _____, _____, _____, _____, RGB_SMOD, RGB_HUD, RGB_SAD, RGB_VAD \
   )
 };
 
@@ -226,7 +168,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef AUDIO_ENABLE
 
 float tone_qvorak[][2]     = SONG(QWERTY_SOUND);
-float tone_dvorak[][2]     = SONG(DVORAK_SOUND);
 float tone_plover[][2]     = SONG(PLOVER_SOUND);
 float tone_plover_gb[][2]  = SONG(PLOVER_GOODBYE_SOUND);
 float music_scale[][2]     = SONG(MUSIC_SCALE_SOUND);
@@ -261,49 +202,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           PLAY_SONG(tone_qvorak);
         #endif
         persistent_default_layer_set(1UL<<_QVORAK);
-      }
-      return false;
-      break;
-    case DVORAK:
-      if (record->event.pressed) {
-        #ifdef AUDIO_ENABLE
-          PLAY_SONG(tone_dvorak);
-        #endif
-        persistent_default_layer_set(1UL<<_DVORAK);
-      }
-      return false;
-      break;
-    case LOWER:
-      if (record->event.pressed) {
-        uint8_t layer = biton32(layer_state);
-        switch (layer) {
-          case _QVORAK:
-            layer_on(_QLOWER);
-            break;
-          case _DVORAK:
-            layer_on(_LOWER);
-            break;
-        }
-      } else {
-        layer_off(_QLOWER);
-        layer_off(_LOWER);
-      }
-      return false;
-      break;
-    case RAISE:
-      if (record->event.pressed) {
-        uint8_t layer = biton32(layer_state);
-        switch (layer) {
-          case _QVORAK:
-            layer_on(_QRAISE);
-            break;
-          case _DVORAK:
-            layer_on(_RAISE);
-            break;
-        }
-      } else {
-        layer_off(_QRAISE);
-        layer_off(_RAISE);
       }
       return false;
       break;
