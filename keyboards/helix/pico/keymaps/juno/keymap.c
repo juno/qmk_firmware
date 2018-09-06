@@ -36,7 +36,6 @@ enum custom_keycodes {
   LOWER,
   RAISE,
   ADJUST,
-  BACKLIT,
   RGBRST
 };
 
