@@ -25,7 +25,7 @@ extern uint8_t is_master;
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
 enum layer_number {
-    _QWERTY = 0,
+    _QVORAK = 0,
     _DVORAK,
     _LOWER,
     _RAISE,
@@ -33,7 +33,7 @@ enum layer_number {
 };
 
 enum custom_keycodes {
-  QWERTY = SAFE_RANGE,
+  QVORAK = SAFE_RANGE,
   DVORAK,
   LOWER,
   RAISE,
@@ -59,84 +59,83 @@ enum macro_keycodes {
 #define TABADJ LT(_ADJUST, KC_TAB)  // Tap to TAB, Hold to Adjust
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-
-  /* Qwerty
+  /* Qvorak - Qwerty for macOS Dvorak Input Source
    * ,-----------------------------------------.             ,-----------------------------------------.
    * | TabAd|   Q  |   W  |   E  |   R  |   T  |             |   Y  |   U  |   I  |   O  |   P  | Bspc |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * | CTRL |   A  |   S  |   D  |   F  |   G  |             |   H  |   J  |   K  |   L  |   ;  |  '   |
+   * | CTRL |   A  |   S  |   D  |   F  |   G  |             |   H  |   J  |   K  |   L  |   ;  |  ''  |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * |Shift |   Z  |   X  |   C  |   V  |   B  |             |   N  |   M  |   ,  |   .  |   /  |Shift |
+   * | Shift|   Z  |   X  |   C  |   V  |   B  |             |   N  |   M  |   ,  |   .  |   /  | Shift|
    * |------+------+------+------+------+------+-------------+------+------+------+------+------+------|
-   * |      |      |      |      |GUI/Es|Low/Ei|Space |Enter |Rai/Kn|Alt/Tb|      |      |      |      |
+   * |Adjust|      |      |      |GUI/Es|Low/Ei| Space| Enter|Rai/Kn|Alt/Tb|      |      |      |      |
    * `-------------------------------------------------------------------------------------------------'
    */
-   [_QWERTY] = LAYOUT( \
-      TABADJ,  KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,                  KC_Y,  KC_U,  KC_I,    KC_O,   KC_P,    KC_BSPC, \
-      KC_LCTL, KC_A,  KC_S,  KC_D,  KC_F,  KC_G,                  KC_H,  KC_J,  KC_K,    KC_L,   KC_SCLN, KC_QUOT, \
-      KC_LSFT, KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,                  KC_N,  KC_M,  KC_COMM, KC_DOT, KC_SLSH, KC_RSFT , \
-      XXXXX,   XXXXX, XXXXX, XXXXX, GUI,   LOWER, KC_SPC, KC_ENT, RAISE, ALTAB, XXXXX,   XXXXX,  XXXXX,   XXXXX \
-      ),
+   [_QVORAK] = LAYOUT( \
+     TABADJ,  KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,                  KC_Y,  KC_U,  KC_I,    KC_O,   KC_P,    KC_BSPC, \
+     KC_LCTL, KC_A,  KC_S,  KC_D,  KC_F,  KC_G,                  KC_H,  KC_J,  KC_K,    KC_L,   KC_SCLN, KC_QUOT, \
+     KC_LSFT, KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,                  KC_N,  KC_M,  KC_COMM, KC_DOT, KC_SLSH, KC_RSFT , \
+     ADJUST,  XXXXX, XXXXX, XXXXX, GUI,   LOWER, KC_SPC, KC_ENT, RAISE, ALTAB, XXXXX,   XXXXX,  XXXXX,   XXXXX \
+   ),
 
   /* Dvorak
    * ,-----------------------------------------.             ,-----------------------------------------.
    * | TabAd|   '  |   ,  |   .  |   P  |   Y  |             |   F  |   G  |   C  |   R  |   L  | Bspc |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * | CTRL |   A  |   O  |   E  |   U  |   I  |             |   D  |   H  |   T  |   N  |   S  |  /   |
+   * | CTRL |   A  |   O  |   E  |   U  |   I  |             |   D  |   H  |   T  |   N  |   S  |  -   |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * |Shift |   ;  |   Q  |   J  |   K  |   X  |             |   B  |   M  |   W  |   V  |   Z  |Shift |
+   * | Shift|   ;  |   Q  |   J  |   K  |   X  |             |   B  |   M  |   W  |   V  |   Z  | Shift|
    * |------+------+------+------+------+------+-------------+------+------+------+------+------+------|
-   * |Adjust|      |      |      |GUI/Es|Low/Ei|Space |Enter |Rai/Kn|Alt/Tb|      |      |      |      |
+   * |Adjust|      |      |      |GUI/Es|Low/Ei| Space| Enter|Rai/Kn|Alt/Tb|      |      |      |      |
    * `-------------------------------------------------------------------------------------------------'
    */
   [_DVORAK] = LAYOUT( \
-      TABADJ,  KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y,                  KC_F,  KC_G,  KC_C,  KC_R,  KC_L,  KC_BSPC, \
-      KC_LCTL, KC_A,    KC_O,    KC_E,   KC_U, KC_I,                  KC_D,  KC_H,  KC_T,  KC_N,  KC_S,  KC_SLSH, \
-      KC_LSFT, KC_SCLN, KC_Q,    KC_J,   KC_K, KC_X,                  KC_B,  KC_M,  KC_W,  KC_V,  KC_Z,  KC_RSFT, \
-      ADJUST,  XXXXX,   XXXXX,   XXXXX,  GUI,  LOWER, KC_SPC, KC_ENT, RAISE, ALTAB, XXXXX, XXXXX, XXXXX, XXXXX \
-      ),
+    TABADJ,  KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y,                  KC_F,  KC_G,  KC_C,  KC_R,  KC_L,  KC_BSPC, \
+    KC_LCTL, KC_A,    KC_O,    KC_E,   KC_U, KC_I,                  KC_D,  KC_H,  KC_T,  KC_N,  KC_S,  KC_MINS, \
+    KC_LSFT, KC_SCLN, KC_Q,    KC_J,   KC_K, KC_X,                  KC_B,  KC_M,  KC_W,  KC_V,  KC_Z,  KC_RSFT, \
+    ADJUST,  XXXXX,   XXXXX,   XXXXX,  GUI,  LOWER, KC_SPC, KC_ENT, RAISE, ALTAB, XXXXX, XXXXX, XXXXX, XXXXX \
+  ),
 
   /* Lower
    * ,-----------------------------------------.             ,-----------------------------------------.
    * |   ~  |   !  |   @  |   #  |   $  |   %  |             |   ^  |   &  |   *  |   (  |   )  | Del  |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * |      |  F1  |  F2  |  F3  |  F4  |  F5  |             |  F6  |   _  |   +  |   {  |   }  |  |   |
+   * |      |      |      |      |      |      |             |      |   {  |   }  |   ?  |   +  |  |   |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * |      |  F7  |  F8  |  F9  |  F10 |  F11 |             |  F12 | Left | Down |  Up  |Right |      |
+   * |      |      |      |      |      |      |             |      | Home | PgDn | PgUp |  End |      |
    * |------+------+------+------+------+------+-------------+------+------+------+------+------+------|
    * |      |      |      |      |      |      |      |      |      |      |      | Vol- | Vol+ |      |
    * `-------------------------------------------------------------------------------------------------'
    */
   [_LOWER] = LAYOUT( \
-      KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,             KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL, \
-      _____,   KC_F1,   KC_F2, KC_F3,   KC_F4,  KC_F5,               KC_F6,   KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, \
-      _____,   KC_F7,   KC_F8, KC_F9,   KC_F10, KC_F11,              KC_F12,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _____, \
-      _____,   _____,   _____, _____,   _____,  _____, _____, _____, _____,   _____,   _____,   KC_VOLD, KC_VOLU, _____ \
-      ),
+    KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,             KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL, \
+    XXXXX,   XXXXX,   XXXXX, XXXXX,   XXXXX,  XXXXX,               XXXXX,   KC_LCBR, KC_RCBR, KC_QUES, KC_PLUS, KC_PIPE, \
+    XXXXX,   XXXXX,   XXXXX, XXXXX,   XXXXX,  XXXXX,               XXXXX,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXX, \
+    _____,   _____,   _____, _____,   _____,  _____, _____, _____, _____,   _____,   _____,   KC_VOLD, KC_VOLU, _____ \
+  ),
 
   /* Raise
    * ,-----------------------------------------.             ,-----------------------------------------.
    * |   `  |   1  |   2  |   3  |   4  |   5  |             |   6  |   7  |   8  |   9  |   0  | Del  |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * |      |  F1  |  F2  |  F3  |  F4  |  F5  |             |  F6  |   -  |   =  |   [  |   ]  |  \   |
+   * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |             |      |   [  |   ]  |   /  |   =  |  \   |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * |      |  F7  |  F8  |  F9  |  F10 |  F11 |             |  F12 |PageDn|PgaeUp| Home | End  |      |
+   * |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |             |      | Left | Down |  Up  | Right|      |
    * |------+------+------+------+------+------+-------------+------+------+------+------+------+------|
    * |      |      |      |      |      |      | Bspc |      |      |      |      |      |      |      |
    * `-------------------------------------------------------------------------------------------------'
    */
   [_RAISE] = LAYOUT( \
-      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                   KC_6,   KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
-      _____,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                  KC_F6,  KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS, \
-      _____,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,                 KC_F12, KC_PGDN, KC_PGUP, KC_HOME, KC_END,  _____, \
-      KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_BTN1, _____,  KC_BSPC, _____, _____,  _____,   _____,   _____,   _____,   _____ \
-      ),
+    KC_GRV, KC_1,  KC_2,  KC_3,   KC_4,   KC_5,                   KC_6,  KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
+    KC_F1,  KC_F2, KC_F3, KC_F4,  KC_F5,  KC_F6,                  XXXXX, KC_LBRC, KC_RBRC, KC_SLSH, KC_EQL,  KC_BSLS, \
+    KC_F7,  KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,                 XXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _____, \
+    _____,  _____, _____, _____,  _____,  _____,  KC_BSPC, _____, _____, _____,   _____,   _____,   _____,   _____ \
+  ),
 
-  /* Adjust (Lower + Raise)
+  /* Adjust
    * ,-----------------------------------------.             ,-----------------------------------------.
    * |      | Reset|      |      |      |      |             |      |      |      |      |      |      |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * |      |Aud on|Audoff|MU TOG|MU MOD| Mac  |             | Win  |Qwerty|Dvorak|      |      |      |
+   * |      |Aud on|Audoff|MU TOG|MU MOD|      |             |Qvorak|Dvorak|      |      |      |      |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
    * |      |CK TOG|CK RST| CK UP|CK DWN|      |             |      |      |RGB ON| HUE+ | SAT+ | VAL+ |
    * |------+------+------+------+------+------+-------------+------+------+------+------+------+------|
@@ -144,18 +143,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_ADJUST] =  LAYOUT( \
-      _____, RESET,   _____,  _____,  _____,   _____,               _____,   _____,  _____,    _____,   _____,   _____, \
-      _____, AU_ON,   AU_OFF, MU_TOG, MU_MOD,  AG_NORM,             AG_SWAP, QWERTY, DVORAK,   _____,   _____,   _____, \
-      _____, CK_TOGG, CK_RST, CK_UP,  CK_DOWN, _____,               _____,   _____,  RGB_TOG,  RGB_HUI, RGB_SAI, RGB_VAI, \
-      _____, _____,   _____,  _____,  _____,   _____, _____, _____, _____,   _____,  RGB_SMOD, RGB_HUD, RGB_SAD, RGB_VAD \
-      )
+    _____, RESET,   _____,  _____,  _____,   _____,               _____,  _____,  _____,    _____,   _____,   _____, \
+    _____, AU_ON,   AU_OFF, MU_TOG, MU_MOD,  _____,               QVORAK, DVORAK, _____,    _____,   _____,   _____, \
+    _____, CK_TOGG, CK_RST, CK_UP,  CK_DOWN, _____,               _____,  _____,  RGB_TOG,  RGB_HUI, RGB_SAI, RGB_VAI, \
+    _____, _____,   _____,  _____,  _____,   _____, _____, _____, _____,  _____,  RGB_SMOD, RGB_HUD, RGB_SAD, RGB_VAD \
+  )
 };
 
 
 
 #ifdef AUDIO_ENABLE
 
-float tone_qwerty[][2]     = SONG(QWERTY_SOUND);
+float tone_qvorak[][2]     = SONG(QWERTY_SOUND);
 float tone_dvorak[][2]     = SONG(DVORAK_SOUND);
 float tone_plover[][2]     = SONG(PLOVER_SOUND);
 float tone_plover_gb[][2]  = SONG(PLOVER_GOODBYE_SOUND);
@@ -185,12 +184,12 @@ void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case QWERTY:
+    case QVORAK:
       if (record->event.pressed) {
         #ifdef AUDIO_ENABLE
-          PLAY_SONG(tone_qwerty);
+          PLAY_SONG(tone_qvorak);
         #endif
-        persistent_default_layer_set(1UL<<_QWERTY);
+        persistent_default_layer_set(1UL<<_QVORAK);
       }
       return false;
       break;
