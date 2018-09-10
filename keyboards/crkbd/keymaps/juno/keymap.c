@@ -56,16 +56,17 @@ enum macro_keycodes {
 #define KC_GUIES GUI_T(KC_ESC)         // Tap to ESC, Hold to GUI (Command)
 #define KC_LOWER LT(_LOWER, KC_LANG2)  // Tap to 英数, Hold to Lower
 #define KC_RAISE LT(_RAISE, KC_LANG1)  // Tap to かな, Hold to Raise
-#define KC_TABADJ LT(_ADJUST, KC_TAB)  // Tap to TAB, Hold to Adjust
+#define KC_SFESC LSFT_T(KC_ESC)        // Tap to ESC, Hold to Shift
+#define KC_ADJTAB LT(_ADJUST, KC_TAB)  // Tap to TAB, Hold to Adjust
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QVORAK] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-     TABADJ,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSPC,\
+     ADJTAB,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSPC,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LCTL,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LSFT,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  RSFT,\
+      SFESC,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  RSFT,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   GUIES, LOWER,   SPC,      ENT, RAISE, ALTAB \
                               //`--------------------'  `--------------------'
@@ -77,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX,  UNDS,  PLUS,  LCBR,  RCBR,  PIPE,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LSFT, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX,  HOME,  PGDN,  PGUP,   END, XXXXX,\
+      XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX,  HOME,  PGDN,  PGUP,   END, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   XXXXX, XXXXX, XXXXX,    XXXXX,  VOLD,  VOLU \
                               //`--------------------'  `--------------------'
