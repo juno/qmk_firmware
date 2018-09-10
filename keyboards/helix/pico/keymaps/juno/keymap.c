@@ -42,11 +42,11 @@ enum macro_keycodes {
 #define _____ KC_TRNS
 #define XXXXX KC_NO
 //Macros
-#define M_SAMPLE M(KC_SAMPLEMACRO)
 #define ALTAB ALT_T(KC_TAB)         // Tap to Tab, Hold to Alt
 #define GUI   GUI_T(KC_ESC)         // Tap to ESC, Hold to GUI (Command)
 #define LOWER LT(_LOWER, KC_LANG2)  // Tap to 英数, Hold to Lower
 #define RAISE LT(_RAISE, KC_LANG1)  // Tap to かな, Hold to Raise
+#define SFESC LSFT_T(KC_ESC)        // Tap to ESC, Hold to Shift
 #define TABADJ LT(_ADJUST, KC_TAB)  // Tap to TAB, Hold to Adjust
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -57,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
    * | CTRL |   A  |   S  |   D  |   F  |   G  |             |   H  |   J  |   K  |   L  |   ;  |  ''  |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * | Shift|   Z  |   X  |   C  |   V  |   B  |             |   N  |   M  |   ,  |   .  |   /  | Shift|
+   * | SfEsc|   Z  |   X  |   C  |   V  |   B  |             |   N  |   M  |   ,  |   .  |   /  | Shift|
    * |------+------+------+------+------+------+-------------+------+------+------+------+------+------|
    * |Adjust|      |      |      |GUI/Es|Low/Ei| Space| Enter|Rai/Kn|Alt/Tb|      |      |      |      |
    * `-------------------------------------------------------------------------------------------------'
@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
    * | CTRL |   A  |   O  |   E  |   U  |   I  |             |   D  |   H  |   T  |   N  |   S  |  -   |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * | Shift|   ;  |   Q  |   J  |   K  |   X  |             |   B  |   M  |   W  |   V  |   Z  | Shift|
+   * | SfEsc|   ;  |   Q  |   J  |   K  |   X  |             |   B  |   M  |   W  |   V  |   Z  | Shift|
    * |------+------+------+------+------+------+-------------+------+------+------+------+------+------|
    * |Adjust|      |      |      |GUI/Es|Low/Ei|Space |Enter |Rai/Kn|Alt/Tb|      |      |      |      |
    * `-------------------------------------------------------------------------------------------------'
@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_QVORAK] = LAYOUT( \
      TABADJ,  KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,                  KC_Y,  KC_U,  KC_I,    KC_O,   KC_P,    KC_BSPC, \
      KC_LCTL, KC_A,  KC_S,  KC_D,  KC_F,  KC_G,                  KC_H,  KC_J,  KC_K,    KC_L,   KC_SCLN, KC_QUOT, \
-     KC_LSFT, KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,                  KC_N,  KC_M,  KC_COMM, KC_DOT, KC_SLSH, KC_RSFT , \
+     SFESC, KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,                  KC_N,  KC_M,  KC_COMM, KC_DOT, KC_SLSH, KC_RSFT , \
      ADJUST,  XXXXX, XXXXX, XXXXX, GUI,   LOWER, KC_SPC, KC_ENT, RAISE, ALTAB, XXXXX,   XXXXX,  XXXXX,   XXXXX \
    ),
 
