@@ -21,13 +21,13 @@ extern uint8_t is_master;
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
-#define _QVORAK 0
+#define _QWERTY 0
 #define _LOWER 3
 #define _RAISE 4
 #define _ADJUST 16
 
 enum custom_keycodes {
-  QVORAK = SAFE_RANGE,
+  QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
   ADJUST,
@@ -41,6 +41,8 @@ enum macro_keycodes {
 
 #define KC______ KC_TRNS
 #define KC_XXXXX KC_NO
+#define KC_LOWER LOWER
+#define KC_RAISE RAISE
 #define KC_RST   RESET
 #define KC_LRST  RGBRST
 #define KC_LTOG  RGB_TOG
@@ -52,23 +54,20 @@ enum macro_keycodes {
 #define KC_LVAD  RGB_VAD
 #define KC_LSMOD RGB_SMOD
 
-#define KC_ALTAB ALT_T(KC_TAB)         // Tap to Tab, Hold to Alt
-#define KC_GUIES GUI_T(KC_ESC)         // Tap to ESC, Hold to GUI (Command)
-#define KC_LOWER LT(_LOWER, KC_LANG2)  // Tap to 英数, Hold to Lower
-#define KC_RAISE LT(_RAISE, KC_LANG1)  // Tap to かな, Hold to Raise
+#define KC_ALTKN ALT_T(KC_LANG1)       // Tap to かな, Hold to Alt
+#define KC_GUIEI GUI_T(KC_LANG2)       // Tap to 英数, Hold to GUI (Command)
 #define KC_SFESC LSFT_T(KC_ESC)        // Tap to ESC, Hold to Shift
-#define KC_ADJTAB LT(_ADJUST, KC_TAB)  // Tap to TAB, Hold to Adjust
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_QVORAK] = LAYOUT_kc( \
+  [_QWERTY] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-     ADJTAB,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSPC,\
+        TAB,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSPC,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LCTL,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       SFESC,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  RSFT,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIES, LOWER,   SPC,      ENT, RAISE, ALTAB \
+                                  GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
                               //`--------------------'  `--------------------'
   ),
 
@@ -76,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------.                ,-----------------------------------------.
        TILD,  EXLM,    AT,  HASH,   DLR,  PERC,                   CIRC,  AMPR,  ASTR,  LPRN,  RPRN,   DEL,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX,  UNDS,  PLUS,  LCBR,  RCBR,  PIPE,\
+       LTOG, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX,  UNDS,  PLUS,  LCBR,  RCBR,  PIPE,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX,  HOME,  PGDN,  PGUP,   END, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
@@ -189,9 +188,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   switch (keycode) {
-    case QVORAK:
+    case QWERTY:
       if (record->event.pressed) {
-        persistent_default_layer_set(1UL<<_QVORAK);
+        persistent_default_layer_set(1UL<<_QWERTY);
       }
       return false;
       break;
