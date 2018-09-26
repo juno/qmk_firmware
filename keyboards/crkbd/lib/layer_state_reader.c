@@ -8,6 +8,7 @@
 #define L_RAISE 16
 #define L_ADJUST 65536
 #define L_ADJUST_TRI 65560
+#define L_ADJUST_TRI_CUSTOM 24 // for Hold Lower and Raise keys
 
 char layer_state_str[24];
 
@@ -25,6 +26,7 @@ const char *read_layer_state(void) {
     break;
   case L_ADJUST:
   case L_ADJUST_TRI:
+  case L_ADJUST_TRI_CUSTOM:
     snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Adjust");
     break;
   default:
