@@ -54,9 +54,12 @@ enum macro_keycodes {
 #define KC_LVAD  RGB_VAD
 #define KC_LSMOD RGB_SMOD
 
-#define KC_ALTKN ALT_T(KC_LANG1)       // Tap to かな, Hold to Alt
-#define KC_GUIEI GUI_T(KC_LANG2)       // Tap to 英数, Hold to GUI (Command)
-#define KC_SFESC LSFT_T(KC_ESC)        // Tap to ESC, Hold to Shift
+#define KC_ALTTB ALT_T(KC_TAB)   // Tap to TAB, Hold to Alt
+#define KC_GUIES GUI_T(KC_ESC)   // Tap to ESC, Hold to GUI (Command)
+#define KC_SFTES LSFT_T(KC_ESC)  // Tap to ESC, Hold to Shift
+
+#define KC_LOWEI LT(_LOWER, KC_LANG2)  // Tap to かな, Hold to Lower
+#define KC_RAIKN LT(_RAISE, KC_LANG1)  // Tap to 英数, Hold to Raise
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_kc( \
@@ -65,9 +68,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LCTL,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      SFESC,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  RSFT,\
+      SFTES,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  RSFT,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
+                                  GUIES, LOWEI,   SPC,      ENT, RAIKN, ALTTB \
                               //`--------------------'  `--------------------'
   ),
 
