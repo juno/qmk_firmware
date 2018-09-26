@@ -54,8 +54,8 @@ enum macro_keycodes {
 #define KC_LVAD  RGB_VAD
 #define KC_LSMOD RGB_SMOD
 
-#define KC_ALTKN ALT_T(KC_LANG1)   // Tap to かな, Hold to Alt
-#define KC_GUIEI GUI_T(KC_LANG2)   // Tap to 英数, Hold to GUI (Command)
+#define KC_ALTKN ALT_T(KC_LANG1) // Tap to かな, Hold to Alt
+#define KC_GUIEI GUI_T(KC_LANG2) // Tap to 英数, Hold to GUI (Command)
 #define KC_SFTES LSFT_T(KC_ESC)  // Tap to ESC, Hold to Shift
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -79,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX,  HOME,  PGDN,  PGUP,   END, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  XXXXX, XXXXX, XXXXX,    XXXXX,  VOLD,  VOLU \
+                                  XXXXX, XXXXX, XXXXX,     MUTE,  VOLD,  VOLU \
                               //`--------------------'  `--------------------'
   ),
 
@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
          F7,    F8,    F9,   F10,   F11,   F12,                  XXXXX,  LEFT,  DOWN,    UP,  RGHT, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                    ESC, XXXXX,   TAB,    _____, _____, _____ \
+                                    ESC, XXXXX,   TAB,     MUTE,  VOLD,  VOLU \
                               //`--------------------'  `--------------------'
   ),
 
