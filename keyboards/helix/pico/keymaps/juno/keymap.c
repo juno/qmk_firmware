@@ -13,6 +13,11 @@
 
 extern keymap_config_t keymap_config;
 
+#ifdef RGBLIGHT_ENABLE
+//Following line allows macro to read current RGB settings
+extern rgblight_config_t rgblight_config;
+#endif
+
 extern uint8_t is_master;
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
@@ -30,7 +35,8 @@ enum custom_keycodes {
   QVORAK = SAFE_RANGE,
   LOWER,
   RAISE,
-  ADJUST
+  ADJUST,
+  RGBRST
 };
 
 enum macro_keycodes {
@@ -166,22 +172,38 @@ float tone_plover_gb[][2]  = SONG(PLOVER_GOODBYE_SOUND);
 float music_scale[][2]     = SONG(MUSIC_SCALE_SOUND);
 #endif
 
+// define variables for reactive RGB
+bool TOG_STATUS = false;
+int RGB_current_mode;
+
 void persistent_default_layer_set(uint16_t default_layer) {
   eeconfig_update_default_layer(default_layer);
   default_layer_set(default_layer);
 }
 
+// Setting ADJUST layer RGB back to default
+void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
+  if (IS_LAYER_ON(layer1) && IS_LAYER_ON(layer2)) {
+    #ifdef RGBLIGHT_ENABLE
+      //rgblight_mode(RGB_current_mode);
+    #endif
+    layer_on(layer3);
+  } else {
+    layer_off(layer3);
+  }
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case QVORAK:
-      if (record->event.pressed) {
-        #ifdef AUDIO_ENABLE
-          PLAY_SONG(tone_qvorak);
-        #endif
-        persistent_default_layer_set(1UL<<_QVORAK);
-      }
-      return false;
-      break;
+        if (record->event.pressed) {
+          #ifdef AUDIO_ENABLE
+            PLAY_SONG(tone_qvorak);
+          #endif
+          persistent_default_layer_set(1UL<<_QVORAK);
+        }
+        return false;
+        break;
     case ADJUST:
         if (record->event.pressed) {
           layer_on(_ADJUST);
@@ -190,6 +212,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         return false;
         break;
+        //led operations - RGB mode change now updates the RGB_current_mode to allow the right RGB mode to be set after reactive keys are released
+    case RGB_MOD:
+        #ifdef RGBLIGHT_ENABLE
+          if (record->event.pressed) {
+            rgblight_mode(RGB_current_mode);
+            rgblight_step();
+            RGB_current_mode = rgblight_config.mode;
+          }
+        #endif
+        return false;
+        break;
+    case RGBRST:
+        #ifdef RGBLIGHT_ENABLE
+          if (record->event.pressed) {
+            eeconfig_update_rgblight_default();
+            rgblight_enable();
+            RGB_current_mode = rgblight_config.mode;
+          }
+        #endif
+        break;
   }
   return true;
 }
@@ -197,6 +239,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 void matrix_init_user(void) {
     #ifdef AUDIO_ENABLE
         startup_user();
+    #endif
+    #ifdef RGBLIGHT_ENABLE
+        RGB_current_mode = rgblight_config.mode;
     #endif
     //SSD1306 OLED init, make sure to add #define SSD1306OLED in config.h
     #ifdef SSD1306OLED
