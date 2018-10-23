@@ -55,7 +55,9 @@ enum macro_keycodes {
 #define KC_LSMOD RGB_SMOD
 
 #define KC_ALTKN ALT_T(KC_LANG1) // Tap to かな, Hold to Alt
+#define KC_RAIKN LT(_RAISE, KC_LANG1) // Tap to かな, Hold to Raise
 #define KC_GUIEI GUI_T(KC_LANG2) // Tap to 英数, Hold to GUI (Command)
+#define KC_LOWEI LT(_LOWER, KC_LANG2) // Tap to 英数, Hold to Lower
 #define KC_SFTES LSFT_T(KC_ESC)  // Tap to ESC, Hold to Shift
 #define KC_LOCK LCTL(LSFT(KC_POWER))
 
@@ -68,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       SFTES,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  RSFT,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
+                                   LGUI, LOWEI,   SPC,      ENT, RAIKN,  RALT \
                               //`--------------------'  `--------------------'
   ),
 
@@ -80,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX,  HOME,  PGDN,  PGUP,   END, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
+                                   LGUI, LOWEI,   SPC,      ENT, RAIKN,  RALT \
                               //`--------------------'  `--------------------'
   ),
 
@@ -92,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
          F7,    F8,    F9,   F10,   F11,   F12,                  XXXXX,  LEFT,  DOWN,    UP,  RGHT, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
+                                   LGUI, LOWEI,   SPC,      ENT, RAIKN,  RALT \
                               //`--------------------'  `--------------------'
   ),
 
@@ -104,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       LSMOD,  LHUD,  LSAD,  LVAD, XXXXX, XXXXX,                  XXXXX,  MUTE,  VOLD,  VOLU, XXXXX, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
+                                   LGUI, LOWEI,   SPC,      ENT, RAIKN,  RALT \
                               //`--------------------'  `--------------------'
   )
 };
