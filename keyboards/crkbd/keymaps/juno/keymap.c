@@ -52,7 +52,7 @@ enum macro_keycodes {
 #define KC_LSAD  RGB_SAD
 #define KC_LVAI  RGB_VAI
 #define KC_LVAD  RGB_VAD
-#define KC_LSMOD RGB_SMOD
+#define KC_LMOD  RGB_MOD
 
 #define KC_ALTKN ALT_T(KC_LANG1) // Tap to かな, Hold to Alt
 #define KC_GUIEI GUI_T(KC_LANG2) // Tap to 英数, Hold to GUI (Command)
@@ -103,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LTOG,  LHUI,  LSAI,  LVAI, XXXXX,  LOCK,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      LSMOD,  LHUD,  LSAD,  LVAD, XXXXX, SLEEP,                  XXXXX,  MUTE,  VOLD,  VOLU, XXXXX, XXXXX,\
+       LMOD,  LHUD,  LSAD,  LVAD, XXXXX, SLEEP,                  XXXXX,  MUTE,  VOLD,  VOLU, XXXXX, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
                               //`--------------------'  `--------------------'
