@@ -1,0 +1,21 @@
+diff --git a/keyboards/planck/thk/bootloader/bootloaderconfig.h b/keyboards/planck/thk/bootloader/bootloaderconfig.h
+index 61883e24e..20616af9f 100644
+--- a/keyboards/planck/thk/bootloader/bootloaderconfig.h
++++ b/keyboards/planck/thk/bootloader/bootloaderconfig.h
+@@ -110,12 +110,15 @@ static inline void  bootLoaderInit(void)
+ {
+ 	DDRA |= (1 << 6);
+     PORTA &= ~(1 << 6); /* activate pull-up for key */
++    PORTD = (1 << 6); /* activate pull-up for key */
+     DDRD &= ~(1 << 7);
+     PORTD |= (1 << 7);
+     _delay_us(10);  /* wait for levels to stabilize */
+ }
+ 
+-#define bootLoaderCondition()   ((PIND & (1 << 7)) != 0)   /* True if jumper is set */
++//#define bootLoaderCondition()   ((PIND & (1 << 7)) != 0)   /* True if jumper is set */
++//#define bootLoaderCondition()   1
++#define bootLoaderCondition()   ((PIND & (1 << 6)) == 0)   /* True if jumper is set */
+ 
+ #endif
+ 
