@@ -39,10 +39,10 @@ enum macro_keycodes {
   KC_SAMPLEMACRO,
 };
 
-#define KC______ KC_TRNS
-#define KC_XXXXX KC_NO
-#define KC_LOWER LOWER
-#define KC_RAISE RAISE
+#define KC_      KC_TRNS
+#define KC_XXXX  KC_NO
+// #define KC_LOWER LOWER
+// #define KC_RAISE RAISE
 #define KC_RST   RESET
 #define KC_LRST  RGBRST
 #define KC_LTOG  RGB_TOG
@@ -54,59 +54,63 @@ enum macro_keycodes {
 #define KC_LVAD  RGB_VAD
 #define KC_LMOD  RGB_MOD
 
-#define KC_ALTKN ALT_T(KC_LANG1) // Tap to かな, Hold to Alt
-#define KC_GUIEI GUI_T(KC_LANG2) // Tap to 英数, Hold to GUI (Command)
-#define KC_SFTES LSFT_T(KC_ESC)  // Tap to ESC, Hold to Shift
+#define KC_TMB1 GUI_T(KC_LANG2) // Tap to 英数, Hold to GUI (Command)
+#define KC_TMB2 LOWER
+#define KC_TMB3 KC_SPC
+#define KC_TMB4 KC_ENT
+#define KC_TMB5 RAISE
+#define KC_TMB6 ALT_T(KC_LANG1) // Tap to かな, Hold to Alt
+#define KC_LSES LSFT_T(KC_ESC)  // Tap to ESC, Hold to Shift
 #define KC_LOCK LCTL(LSFT(KC_POWER))
-#define KC_SLEEP LGUI(LALT(KC_POWER))
+#define KC_SLP LGUI(LALT(KC_POWER))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_QWERTY] = LAYOUT_kc( \
-  //,-----------------------------------------.                ,-----------------------------------------.
-        TAB,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSPC,\
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LCTL,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,\
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      SFTES,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  RSFT,\
-  //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
-                              //`--------------------'  `--------------------'
+  [_QWERTY] = LAYOUT_kc(
+  //|----+----+----+----+----+----|           |----+----+----+----+----+----|
+     TAB , Q  , W  , E  , R  , T  ,             Y  , U  , I  , O  , P  ,BSPC,
+  //|----+----+----+----+----+----|           |----+----+----+----+----+----|
+     LCTL, A  , S  , D  , F  , G  ,             H  , J  , K  , L  ,SCLN,QUOT,
+  //|----+----+----+----+----+----|           |----+----+----+----+----+----|
+     LSES, Z  , X  , C  , V  , B  ,             N  , M  ,COMM,DOT ,SLSH,RSFT,
+  //`----+----+----+----+----+----+----| |----+----+----+----+----+----+----'
+                         TMB1,TMB2,TMB3,  TMB4,TMB5,TMB6
+  //                    `----+----+----' `----+----+----'
   ),
 
-  [_LOWER] = LAYOUT_kc( \
-  //,-----------------------------------------.                ,-----------------------------------------.
-       TILD,  EXLM,    AT,  HASH,   DLR,  PERC,                   CIRC,  AMPR,  ASTR,  LPRN,  RPRN,   DEL,\
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX,  UNDS,  PLUS,  LCBR,  RCBR,  PIPE,\
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX,  HOME,  PGDN,  PGUP,   END, XXXXX,\
-  //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
-                              //`--------------------'  `--------------------'
+  [_LOWER] = LAYOUT_kc(
+  //|----+----+----+----+----+----|           |----+----+----+----+----+----|
+     TILD,EXLM, AT ,HASH,DLR ,PERC,            CIRC,AMPR,ASTR,LPRN,RPRN,DEL ,
+  //|----+----+----+----+----+----|           |----+----+----+----+----+----|
+         ,    ,    ,    ,    ,    ,                ,UNDS,PLUS,LCBR,RCBR,PIPE,
+  //|----+----+----+----+----+----|           |----+----+----+----+----+----|
+         ,    ,    ,    ,    ,    ,                ,HOME,PGDN,PGUP,END ,    ,
+  //`----+----+----+----+----+----+----| |----+----+----+----+----+----+----'
+                             ,    ,    ,      ,    ,
+  //                    `----+----+----' `----+----+----'
   ),
 
-  [_RAISE] = LAYOUT_kc( \
-  //,-----------------------------------------.                ,-----------------------------------------.
-        GRV,     1,     2,     3,     4,     5,                      6,     7,     8,     9,     0,   DEL,\
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-         F1,    F2,    F3,    F4,    F5,    F6,                  XXXXX,  MINS,   EQL,  LBRC,  RBRC,  BSLS,\
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-         F7,    F8,    F9,   F10,   F11,   F12,                  XXXXX,  LEFT,  DOWN,    UP,  RGHT, XXXXX,\
-  //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
-                              //`--------------------'  `--------------------'
+  [_RAISE] = LAYOUT_kc(
+  //|----+----+----+----+----+----|           |----+----+----+----+----+----|
+     GRV , 1  , 2  , 3  , 4  , 5  ,             6  , 7  , 8  , 9  , 0  ,    ,
+  //|----+----+----+----+----+----|           |----+----+----+----+----+----|
+      F1 , F2 , F3 , F4 , F5 , F6 ,                ,MINS,EQL ,LBRC,RBRC,BSLS,
+  //|----+----+----+----+----+----|           |----+----+----+----+----+----|
+      F7 , F8 , F9 ,F10 ,F11 ,F12 ,                ,LEFT,DOWN, UP ,RGHT,    ,
+  //`----+----+----+----+----+----+----| |----+----+----+----+----+----+----'
+                             ,    ,    ,      ,    ,
+  //                    `----+----+----' `----+----+----'
   ),
 
-  [_ADJUST] = LAYOUT_kc( \
-  //,-----------------------------------------.                ,-----------------------------------------.
-        RST, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LTOG,  LHUI,  LSAI,  LVAI, XXXXX,  LOCK,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LMOD,  LHUD,  LSAD,  LVAD, XXXXX, SLEEP,                  XXXXX,  MUTE,  VOLD,  VOLU, XXXXX, XXXXX,\
-  //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
-                              //`--------------------'  `--------------------'
+  [_ADJUST] = LAYOUT_kc(
+  //|----+----+----+----+----+----|           |----+----+----+----+----+----|
+     RST ,    ,    ,    ,    ,    ,                ,    ,    ,    ,    ,    ,
+  //|----+----+----+----+----+----|           |----+----+----+----+----+----|
+     LTOG,LHUI,LSAI,LVAI,    ,LOCK,                ,    ,    ,    ,    ,    ,
+  //|----+----+----+----+----+----|           |----+----+----+----+----+----|
+     LMOD,LHUD,LSAD,LVAD,    ,SLP ,                ,MUTE,VOLD,VOLU,    ,    ,
+  //`----+----+----+----+----+----+----| |----+----+----+----+----+----+----'
+                             ,    ,    ,      ,    ,
+  //                    `----+----+----' `----+----+----'
   )
 };
 
