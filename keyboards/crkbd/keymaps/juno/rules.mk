@@ -57,4 +57,4 @@ SRC +=  ./lib/glcdfont.c \
         # ./lib/timelogger.c \
 
 # Enable Link Time Optimization to saving amount of space
-EXTRAFLAGS += -flto
+# EXTRAFLAGS += -flto
