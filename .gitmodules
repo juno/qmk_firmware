@@ -8,6 +8,7 @@
 [submodule "lib/ugfx"]
 	path = lib/ugfx
 	url = https://github.com/qmk/uGFX
+    ignore = dirty
 [submodule "lib/googletest"]
 	path = lib/googletest
 	url = https://github.com/google/googletest
