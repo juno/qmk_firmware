@@ -43,3 +43,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_HUE_STEP 10
 #define RGBLIGHT_SAT_STEP 17
 #define RGBLIGHT_VAL_STEP 17
+
+// Disable Macro and Function features which incompatible with Link Time Optimization
+#define NO_ACTION_MACRO
+#define NO_ACTION_FUNCTION
