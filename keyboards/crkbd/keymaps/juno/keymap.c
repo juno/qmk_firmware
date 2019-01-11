@@ -188,10 +188,10 @@ void iota_gfx_task_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
+  // if (record->event.pressed) {
     // set_keylog(keycode, record);
     // set_timelog();
-  }
+  // }
 
   switch (keycode) {
     case QWERTY:
