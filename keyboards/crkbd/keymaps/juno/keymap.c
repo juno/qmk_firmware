@@ -32,7 +32,8 @@ enum custom_keycodes {
   RAISE,
   ADJUST,
   BACKLIT,
-  RGBRST
+  RGBRST,
+  REFOCUS,
 };
 
 enum macro_keycodes {
@@ -63,6 +64,7 @@ enum macro_keycodes {
 #define KC_LSES LSFT_T(KC_ESC)  // Tap to ESC, Hold to Shift
 #define KC_LOCK LCTL(LSFT(KC_POWER))
 #define KC_SLP LGUI(LALT(KC_POWER))
+#define KC_RFC REFOCUS
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_kc(
@@ -103,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_ADJUST] = LAYOUT_kc(
   //|----+----+----+----+----+----|           |----+----+----+----+----+----|
-     RST ,    ,    ,    ,    ,    ,                ,    ,    ,    ,    ,    ,
+     RST ,    ,    ,    ,    ,    ,                ,    ,    ,    , RFC,    ,
   //|----+----+----+----+----+----|           |----+----+----+----+----+----|
      LTOG,LHUI,LSAI,LVAI,    ,LOCK,                ,    ,    ,    ,    ,    ,
   //|----+----+----+----+----+----|           |----+----+----+----+----+----|
@@ -246,6 +248,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           RGB_current_mode = rgblight_config.mode;
         }
       #endif
+      break;
+    case REFOCUS:
+      if (record->event.pressed) {
+        // when keycode QMKBEST is pressed
+        SEND_STRING(SS_LGUI("p")); // Cmd+L
+        SEND_STRING("ca.a;iogrkZ" SS_TAP(X_ENTER)); // "javascript:" + ENTER
+      } else {
+        // when keycode QMKBEST is released
+      }
+      return false;
       break;
   }
   return true;
