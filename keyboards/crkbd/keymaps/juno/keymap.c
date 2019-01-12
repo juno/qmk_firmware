@@ -56,10 +56,10 @@ enum macro_keycodes {
 #define KC_LMOD  RGB_MOD
 
 #define KC_TMB1 GUI_T(KC_LANG2) // Tap to 英数, Hold to GUI (Command)
-#define KC_TMB2 LOWER
-#define KC_TMB3 KC_SPC
-#define KC_TMB4 KC_ENT
-#define KC_TMB5 RAISE
+#define KC_TMB2 LT(_LOWER, KC_ESC) // Tap to ESC, Hold to LOWER
+#define KC_TMB3 LCTL_T(KC_SPC)     // Tap to Space, Hold to Ctrl
+#define KC_TMB4 LSFT_T(KC_ENT)     // Tap to Enter, Hold to Shift
+#define KC_TMB5 LT(_RAISE, KC_TAB) // Tap to Tab, Hold to RAISE
 #define KC_TMB6 ALT_T(KC_LANG1) // Tap to かな, Hold to Alt
 #define KC_LSES LSFT_T(KC_ESC)  // Tap to ESC, Hold to Shift
 #define KC_LOCK LCTL(LSFT(KC_POWER))
@@ -140,6 +140,10 @@ void matrix_init_user(void) {
     #ifdef SSD1306OLED
         iota_gfx_init(!has_usb());   // turns on the display
     #endif
+}
+
+uint32_t layer_state_set_user(uint32_t state) {
+  return update_tri_layer_state(state, _RAISE, _LOWER, _ADJUST);
 }
 
 //SSD1306 OLED update loop, make sure to add #define SSD1306OLED in config.h
