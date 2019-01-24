@@ -36,10 +36,6 @@ enum custom_keycodes {
   REFOCUS,
 };
 
-enum macro_keycodes {
-  KC_SAMPLEMACRO,
-};
-
 #define KC_      KC_TRNS
 #define KC_XXXX  KC_NO
 // #define KC_LOWER LOWER
