@@ -256,12 +256,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       #endif
       break;
     case REFOCUS:
+      // Refocus to document from omnibar in Chrome
+      // This is useful when navigation with Vimium extension
       if (record->event.pressed) {
-        // when keycode QMKBEST is pressed
         SEND_STRING(SS_LGUI("p")); // Cmd+L
         SEND_STRING("ca.a;iogrkZ" SS_TAP(X_ENTER)); // "javascript:" + ENTER
-      } else {
-        // when keycode QMKBEST is released
       }
       return false;
       break;
