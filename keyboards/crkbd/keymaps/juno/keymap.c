@@ -56,11 +56,12 @@ enum custom_keycodes {
 #define KC_TMB2 LT(_LOWER, KC_ESC) // Tap to ESC, Hold to LOWER
 #define KC_TMB3 LCTL_T(KC_SPC)     // Tap to Space, Hold to Ctrl
 #define KC_TMB4 LSFT_T(KC_ENT)     // Tap to Enter, Hold to Shift
+#define KC_TMB5 LT(_RAISE, KC_TAB) // Tap to Tab, Hold to RAISE
 */
 #define KC_TMB2 LOWER
 #define KC_TMB3 KC_SPC
 #define KC_TMB4 KC_ENT
-#define KC_TMB5 LT(_RAISE, KC_TAB) // Tap to Tab, Hold to RAISE
+#define KC_TMB5 RAISE
 #define KC_TMB6 ALT_T(KC_LANG1) // Tap to かな, Hold to Alt
 #define KC_LSES LSFT_T(KC_ESC)  // Tap to ESC, Hold to Shift
 #define KC_LOCK LCTL(LSFT(KC_POWER))
