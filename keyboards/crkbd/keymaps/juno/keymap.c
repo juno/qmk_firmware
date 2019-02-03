@@ -229,13 +229,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
       break;
     case ADJUST:
-        if (record->event.pressed) {
-          layer_on(_ADJUST);
-        } else {
-          layer_off(_ADJUST);
-        }
-        return false;
-        break;
+      if (record->event.pressed) {
+        layer_on(_ADJUST);
+      } else {
+        layer_off(_ADJUST);
+      }
+      return false;
+      break;
     case RGB_MOD:
       #ifdef RGBLIGHT_ENABLE
         if (record->event.pressed) {
