@@ -37,8 +37,6 @@ enum custom_keycodes {
 
 #define KC_      KC_TRNS
 #define KC_XXXX  KC_NO
-// #define KC_LOWER LOWER
-// #define KC_RAISE RAISE
 #define KC_RST   RESET
 #define KC_LRST  RGBRST
 #define KC_LTOG  RGB_TOG
@@ -57,10 +55,10 @@ enum custom_keycodes {
 #define KC_TMB4 LSFT_T(KC_ENT)     // Tap to Enter, Hold to Shift
 #define KC_TMB5 LT(_RAISE, KC_TAB) // Tap to Tab, Hold to RAISE
 */
-#define KC_TMB2 LOWER
+#define KC_TMB2 LOWER           // Tap to ESC, Hold to LOWER (w/process_record_user)
 #define KC_TMB3 KC_SPC
 #define KC_TMB4 KC_ENT
-#define KC_TMB5 RAISE
+#define KC_TMB5 RAISE           // Tap to TAB, Hold to RAISE (w/process_record_user)
 #define KC_TMB6 ALT_T(KC_LANG1) // Tap to かな, Hold to Alt
 #define KC_LSES LSFT_T(KC_ESC)  // Tap to ESC, Hold to Shift
 #define KC_LOCK LCTL(LSFT(KC_POWER))
@@ -108,9 +106,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|           |----+----+----+----+----+----|
      RST ,BRMD,BRMU,    ,    ,    ,                ,    ,    ,    , RFC,    ,
   //|----+----+----+----+----+----|           |----+----+----+----+----+----|
-     LTOG,LHUI,LSAI,LVAI,    ,LOCK,            LEFT,DOWN, UP ,RGHT,    ,    ,
+         ,    ,    ,    ,    ,LOCK,            LEFT,DOWN, UP ,RGHT,    ,    ,
   //|----+----+----+----+----+----|           |----+----+----+----+----+----|
-     LMOD,LHUD,LSAD,LVAD,    ,SLP ,                ,MUTE,VOLD,VOLU,    ,    ,
+         ,    ,    ,    ,    ,SLP ,                ,MUTE,VOLD,VOLU,    ,    ,
   //`----+----+----+----+----+----+----| |----+----+----+----+----+----+----'
                              ,    ,    ,      ,    ,
   //                    `----+----+----' `----+----+----'
