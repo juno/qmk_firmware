@@ -62,7 +62,7 @@ enum custom_keycodes {
 //#define KC_TMB4 KC_ENT
 #define KC_TMB5 RAISE           // Tap to TAB, Hold to RAISE (w/process_record_user)
 #define KC_TMB6 ALT_T(KC_LANG1) // Tap to かな, Hold to Alt
-#define KC_LSES LSFT_T(KC_ESC)  // Tap to ESC, Hold to Shift
+//#define KC_LSES LSFT_T(KC_ESC)  // Tap to ESC, Hold to Shift
 #define KC_LOCK LCTL(LSFT(KC_POWER))
 #define KC_SLP LGUI(LALT(KC_POWER))
 #define KC_RFC REFOCUS
@@ -70,11 +70,11 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_kc(
   //|----+----+----+----+----+----|           |----+----+----+----+----+----|
-     TAB , Q  , W  , E  , R  , T  ,             Y  , U  , I  , O  , P  ,BSPC,
+     GESC, Q  , W  , E  , R  , T  ,             Y  , U  , I  , O  , P  ,BSPC,
   //|----+----+----+----+----+----|           |----+----+----+----+----+----|
      LCTL, A  , S  , D  , F  , G  ,             H  , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----|           |----+----+----+----+----+----|
-     LSES, Z  , X  , C  , V  , B  ,             N  , M  ,COMM,DOT ,SLSH,RSFT,
+     LSPO, Z  , X  , C  , V  , B  ,             N  , M  ,COMM,DOT ,SLSH,RSPC,
   //`----+----+----+----+----+----+----| |----+----+----+----+----+----+----'
                          TMB1,TMB2,TMB3,  TMB4,TMB5,TMB6
   //                    `----+----+----' `----+----+----'
