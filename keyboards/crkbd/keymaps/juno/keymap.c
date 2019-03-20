@@ -58,7 +58,7 @@ enum custom_keycodes {
 #define KC_LOCK LCTL(LSFT(KC_POWER))
 #define KC_SLP LGUI(LALT(KC_POWER))
 #define KC_RFC REFOCUS
-#define KC_LSFZ LSFT_T(KC_Z)
+//#define KC_LSFZ LSFT_T(KC_Z)
 #define KC_SSLS RSFT_T(KC_SLSH)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -68,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|           |----+----+----+----+----+----|
      LCTL, A  , S  , D  , F  , G  ,             H  , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----|           |----+----+----+----+----+----|
-     LSPO,LSFZ, X  , C  , V  , B  ,             N  , M  ,COMM,DOT ,SSLS,RSFT,
+     LSPO, Z  , X  , C  , V  , B  ,             N  , M  ,COMM,DOT ,SSLS,RSFT,
   //`----+----+----+----+----+----+----| |----+----+----+----+----+----+----'
                          TMB1,TMB2,TMB3,  TMB4,TMB5,TMB6
   //                    `----+----+----' `----+----+----'
