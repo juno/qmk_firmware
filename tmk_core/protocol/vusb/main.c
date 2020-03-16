@@ -21,6 +21,10 @@
 #include "uart.h"
 #include "debug.h"
 
+#if defined(RGBLIGHT_ENABLE)
+#    include "rgblight.h"
+#endif
+
 #define UART_BAUD_RATE 115200
 
 /* This is from main.c of USBaspLoader */
@@ -54,11 +58,11 @@ int main(void) {
 #endif
     keyboard_setup();
 
-    keyboard_init();
     host_set_driver(vusb_driver());
-
     debug("initForUsbConnectivity()\n");
     initForUsbConnectivity();
+
+    keyboard_init();
 
     debug("main loop\n");
     while (1) {
