@@ -1,7 +1,22 @@
+/* Copyright 2015-2017 Jack Humbert
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #include QMK_KEYBOARD_H
 #include "muse.h"
 
-extern keymap_config_t keymap_config;
 
 enum planck_layers {
   _QWERTY,
@@ -10,11 +25,7 @@ enum planck_layers {
   _LOWER,
   _RAISE,
   _PLOVER,
-  _ADJUST,
-
-  _FN1,
-  _DPAD,
-  _DPADNUM
+  _ADJUST
 };
 
 enum planck_keycodes {
@@ -23,11 +34,7 @@ enum planck_keycodes {
   DVORAK,
   PLOVER,
   BACKLIT,
-  EXT_PLV,
-
-  FN1,
-  DP_ON,
-  DP_OFF
+  EXT_PLV
 };
 
 #define LOWER MO(_LOWER)
@@ -63,9 +70,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Colemak
  * ,-----------------------------------------------------------------------------------.
  * | Tab  |   Q  |   W  |   F  |   P  |   G  |   J  |   L  |   U  |   Y  |   ;  | Bksp |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Esc  |   A  |   R  |   S  |   T  |   D  |   H  |   N  |   E  |   I  |   O  |  "   |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   K  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Brite| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
@@ -81,9 +88,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Dvorak
  * ,-----------------------------------------------------------------------------------.
  * | Tab  |   "  |   ,  |   .  |   P  |   Y  |   F  |   G  |   C  |   R  |   L  | Bksp |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Esc  |   A  |   O  |   E  |   U  |   I  |   D  |   H  |   T  |   N  |   S  |  /   |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Shift|   ;  |   Q  |   J  |   K  |   X  |   B  |   M  |   W  |   V  |   Z  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Brite| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
@@ -135,15 +142,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Plover layer (http://opensteno.org)
  * ,-----------------------------------------------------------------------------------.
  * |   #  |   #  |   #  |   #  |   #  |   #  |   #  |   #  |   #  |   #  |   #  |   #  |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |   S  |   T  |   P  |   H  |   *  |   *  |   F  |   P  |   L  |   T  |   D  |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |   S  |   K  |   W  |   R  |   *  |   *  |   R  |   B  |   G  |   S  |   Z  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Exit |      |      |   A  |   O  |             |   E  |   U  |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
-
 [_PLOVER] = LAYOUT_planck_grid(
     KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1   ,
     XXXXXXX, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC,
@@ -169,93 +175,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
 
-// Two personal additional layers below
-
-/* Personal custom Fn layer
- * ,-----------------------------------------------------------------------------------.
- * |      | Vol+ | PgUp |  Up  | PdDn | Ins  |      |      |  Up  |      | PScr |      |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      | Vol- | Left | Down | Right| Home |      | Left | Down |Right |      | Del  |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      | Prev | Play | Next | Brite| End  |      |      | Vol- | Vol+ | Mute |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Caps |      |      |      |      |    Space    |      | DP_ON|      |      |      |
- * `-----------------------------------------------------------------------------------'
- */
-[_FN1] = LAYOUT_planck_grid(
-	_______, KC_VOLU, KC_PGUP, KC_UP,   KC_PGDN, KC_INS,  _______, _______, KC_UP,   _______, KC_PSCR, _______,
-	_______, KC_VOLD, KC_LEFT, KC_DOWN, KC_RGHT, KC_HOME, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_DEL ,
-	_______, KC_MPRV, KC_MPLY, KC_MNXT, BACKLIT, KC_END,  _______, _______, KC_VOLD, KC_VOLU, KC_MUTE, _______,
-	KC_CAPS, _______, _______, _______, _______, _______, _______, _______, DP_ON,   _______, _______, _______
-),
-
-/* DPAD layer, to activate arrow cluster at the bottom right corner
-
- * ,-----------------------------------------------------------------------------------.
- * | ESC  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Tab  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |  Up  |Enter |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | GUI  | Alt  |      |DNUM  |    Space    |      |DP_OFF| Left | Down |Right |
- * `-----------------------------------------------------------------------------------'
- */
-
-[_DPAD] = LAYOUT_planck_grid(
-	KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-	KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-	KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   KC_ENT ,
-	KC_LCTL, KC_LGUI, KC_LALT, XXXXXXX, MO(_DPADNUM),
-												 KC_SPC,  KC_SPC,  LOWER,   DP_OFF,  KC_LEFT, KC_DOWN, KC_RGHT
-),
-
-// Extended layer for weapon switching
-
-[_DPADNUM] = LAYOUT_planck_grid(
-	XXXXXXX, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    XXXXXXX,
-	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
-	_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-	_______, _______, _______, XXXXXXX, MO(_DPADNUM),
-												 XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-)
-
-
 };
 
 #ifdef AUDIO_ENABLE
   float plover_song[][2]     = SONG(PLOVER_SOUND);
   float plover_gb_song[][2]  = SONG(PLOVER_GOODBYE_SOUND);
-
-  // Borrowing audio from unused audio
-  // Caps Lock on and off sound too similar
-
-  float caps_song_on[][2] = SONG(NUM_LOCK_ON_SOUND);
-  float caps_song_off[][2] = SONG(SCROLL_LOCK_ON_SOUND);
-
-  float dpad_song_on[][2] = SONG(ZELDA_PUZZLE);
-  float dpad_song_off[][2] = SONG(SONIC_RING);
 #endif
 
-uint32_t layer_state_set_user(uint32_t state) {
-
-  // LED control, lighting up when Fn layer is activated
-
-  state = update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
-
-  switch (biton32(state)) {
-    case _QWERTY:
-      backlight_set(0);
-      break;
-    case _FN1:
-      backlight_set(3);
-      break;
-	case _DPAD:
-      backlight_set(3);
-      break;
-  }
-
-  return state;
+layer_state_t layer_state_set_user(layer_state_t state) {
+  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -286,12 +214,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           backlight_step();
         #endif
         #ifdef KEYBOARD_planck_rev5
-          PORTE &= ~(1<<6);
+          writePinLow(E6);
         #endif
       } else {
         unregister_code(KC_RSFT);
         #ifdef KEYBOARD_planck_rev5
-          PORTE |= (1<<6);
+          writePinHigh(E6);
         #endif
       }
       return false;
@@ -324,43 +252,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-
-
-// Play audio upon switching Caps Lock and custom layers
-
-	case KC_CAPS:
-		if (record->event.pressed) {
-			#ifdef AUDIO_ENABLE
-			if (host_keyboard_leds() & (1<<USB_LED_CAPS_LOCK)) {
-				PLAY_SONG(caps_song_off);
-			} else {
-				PLAY_SONG(caps_song_on);
-			}
-			#endif
-		}
-		return true;
-
-	case DP_ON:
-		if (record->event.pressed) {
-
-		} else {
-			#ifdef AUDIO_ENABLE
-			PLAY_SONG(dpad_song_on);
-			#endif
-
-			layer_off(_FN1);
-			layer_on(_DPAD);
-		}
-
-	case DP_OFF:
-		if (record->event.pressed) {
-			#ifdef AUDIO_ENABLE
-			PLAY_SONG(dpad_song_off);
-			#endif
-
-			layer_off(_DPAD);
-		}
-    }
+  }
   return true;
 }
 
@@ -387,56 +279,71 @@ void encoder_update(bool clockwise) {
     }
   } else {
     if (clockwise) {
-      register_code(KC_PGDN);
-      unregister_code(KC_PGDN);
+      #ifdef MOUSEKEY_ENABLE
+        tap_code(KC_MS_WH_DOWN);
+      #else
+        tap_code(KC_PGDN);
+      #endif
     } else {
-      register_code(KC_PGUP);
-      unregister_code(KC_PGUP);
+      #ifdef MOUSEKEY_ENABLE
+        tap_code(KC_MS_WH_UP);
+      #else
+        tap_code(KC_PGUP);
+      #endif
     }
   }
 }
 
-void dip_update(uint8_t index, bool active) {
-  switch (index) {
-    case 0:
-      if (active) {
-        #ifdef AUDIO_ENABLE
-          PLAY_SONG(plover_song);
-        #endif
-        layer_on(_ADJUST);
-      } else {
-        #ifdef AUDIO_ENABLE
-          PLAY_SONG(plover_gb_song);
-        #endif
-        layer_off(_ADJUST);
-      }
-      break;
-    case 1:
-      if (active) {
-        muse_mode = true;
-      } else {
-        muse_mode = false;
-        #ifdef AUDIO_ENABLE
-          stop_all_notes();
-        #endif
-      }
-   }
+void dip_switch_update_user(uint8_t index, bool active) {
+    switch (index) {
+        case 0: {
+#ifdef AUDIO_ENABLE
+            static bool play_sound = false;
+#endif
+            if (active) {
+#ifdef AUDIO_ENABLE
+                if (play_sound) { PLAY_SONG(plover_song); }
+#endif
+                layer_on(_ADJUST);
+            } else {
+#ifdef AUDIO_ENABLE
+                if (play_sound) { PLAY_SONG(plover_gb_song); }
+#endif
+                layer_off(_ADJUST);
+            }
+#ifdef AUDIO_ENABLE
+            play_sound = true;
+#endif
+            break;
+        }
+        case 1:
+            if (active) {
+                muse_mode = true;
+            } else {
+                muse_mode = false;
+            }
+    }
 }
 
 void matrix_scan_user(void) {
-  #ifdef AUDIO_ENABLE
+#ifdef AUDIO_ENABLE
     if (muse_mode) {
-      if (muse_counter == 0) {
-        uint8_t muse_note = muse_offset + SCALE[muse_clock_pulse()];
-        if (muse_note != last_muse_note) {
-          stop_note(compute_freq_for_midi_note(last_muse_note));
-          play_note(compute_freq_for_midi_note(muse_note), 0xF);
-          last_muse_note = muse_note;
+        if (muse_counter == 0) {
+            uint8_t muse_note = muse_offset + SCALE[muse_clock_pulse()];
+            if (muse_note != last_muse_note) {
+                stop_note(compute_freq_for_midi_note(last_muse_note));
+                play_note(compute_freq_for_midi_note(muse_note), 0xF);
+                last_muse_note = muse_note;
+            }
         }
-      }
-      muse_counter = (muse_counter + 1) % muse_tempo;
+        muse_counter = (muse_counter + 1) % muse_tempo;
+    } else {
+        if (muse_counter) {
+            stop_all_notes();
+            muse_counter = 0;
+        }
     }
-  #endif
+#endif
 }
 
 bool music_mask_user(uint16_t keycode) {
